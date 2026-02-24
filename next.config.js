@@ -36,26 +36,32 @@ const nextConfig = {
           {
             from: "./node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.wasm",
             to: "static/chunks/[name][ext]",
+            noErrorOnMissing: true,
           },
           {
             from: "./node_modules/onnxruntime-web/dist/ort-wasm-threaded.wasm",
             to: "static/chunks/[name][ext]",
+            noErrorOnMissing: true,
           },
           {
             from: "./node_modules/onnxruntime-web/dist/ort-wasm.wasm",
             to: "static/chunks/[name][ext]",
+            noErrorOnMissing: true,
           },
           {
             from: "./node_modules/onnxruntime-web/dist/ort-wasm-simd.wasm",
             to: "static/chunks/[name][ext]",
+            noErrorOnMissing: true,
           },
           {
             from: "node_modules/@ricky0123/vad-web/dist/vad.worklet.bundle.min.js",
             to: "static/chunks/[name][ext]",
+            noErrorOnMissing: true,
           },
           {
             from: "node_modules/@ricky0123/vad-web/dist/*.onnx",
             to: "static/chunks/[name][ext]",
+            noErrorOnMissing: true,
           },
         ],
       }),
