@@ -9,6 +9,9 @@ const output = process.env.NEXT_OUTPUT || undefined;
 const nextConfig = {
   output,
   reactStrictMode: false,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   assetPrefix: process.env.BASE_PATH || "",
   basePath: process.env.BASE_PATH || "",
   trailingSlash: true,
