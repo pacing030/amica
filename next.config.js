@@ -15,6 +15,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  experimental: {
+    esmExternals: "loose",
+  },
   assetPrefix: process.env.BASE_PATH || "",
   basePath: process.env.BASE_PATH || "",
   trailingSlash: true,
@@ -22,13 +25,21 @@ const nextConfig = {
     root: process.env.BASE_PATH || "",
   },
   optimizeFonts: false,
-  webpack: (config, { webpack, buildId }) => {
+  webpack: (config, { webpack, buildId, isServer }) => {
     // See https://webpack.js.org/configuration/resolve/#resolvealias
     config.resolve.alias = {
       ...config.resolve.alias,
       sharp$: false,
       "onnxruntime-node$": false,
     };
+
+    if (isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "onnxruntime-web$": false,
+        "@xenova/transformers$": false,
+      };
+    }
 
     config.plugins.push(
       new CopyPlugin({
