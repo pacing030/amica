@@ -73,7 +73,13 @@ export default function MessageInput({
             console.debug('whisper_openai attempt');
             const wav = new WaveFile();
             wav.fromScratch(1, 16000, '32f', audio);
-            const file = new File([wav.toBuffer()], "input.wav", { type: "audio/wav" });
+            const wavBytes = wav.toBuffer();
+            const wavArrayBuffer = wavBytes.buffer.slice(
+              wavBytes.byteOffset,
+              wavBytes.byteOffset + wavBytes.byteLength
+            ) as ArrayBuffer;
+            const file = new File([wavArrayBuffer], "input.wav", { type: "audio/wav" });
+
 
             let prompt;
             // TODO load prompt if it exists
