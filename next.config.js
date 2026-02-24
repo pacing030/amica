@@ -1,8 +1,7 @@
 const CopyPlugin = require("copy-webpack-plugin");
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
-  // Critical: keep workbox/terser away from ONNX ESM bundle
-  buildExcludes: [/static\/media\/ort\.bundle\.min\..*\.mjs$/],
+  disable: true,
 });
 
 const output = process.env.NEXT_OUTPUT || undefined;
