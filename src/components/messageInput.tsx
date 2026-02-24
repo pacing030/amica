@@ -63,7 +63,9 @@ export default function MessageInput({
             // both are 16000
             const audioCtx = new AudioContext();
             const buffer = audioCtx.createBuffer(1, audio.length, 16000);
-            buffer.copyToChannel(audio, 0, 0);
+            const pcm = new Float32Array(audio.length);
+            pcm.set(audio);
+            buffer.copyToChannel(pcm, 0, 0);
             transcriber.start(buffer);
             break;
           }
