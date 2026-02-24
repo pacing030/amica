@@ -1,11 +1,8 @@
 const CopyPlugin = require("copy-webpack-plugin");
 
-const output = process.env.NEXT_OUTPUT || undefined;
-
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  output,
-  reactStrictMode: false,
+  output: "standalone",
+    reactStrictMode: false,
   eslint: {
     ignoreDuringBuilds: true,
   },
