@@ -91,6 +91,10 @@ const nextConfig = {
       }),
     );
 
+    // Emergency unblock
+    config.optimization = config.optimization || {};
+    config.optimization.minimize = false;
+
     return config;
   },
 };
