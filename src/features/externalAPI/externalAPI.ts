@@ -111,7 +111,7 @@ export async function handleConfig(
 }
 
 export async function handleUserInput(message: string) {
-  if (!isDev || config("external_api_enabled") !== "true") {
+  if (config("external_api_enabled") !== "true") {
     return;
   }
 
@@ -126,7 +126,7 @@ export async function handleUserInput(message: string) {
 }
 
 export async function handleChatLogs(messages: Message[]) {
-  if (!isDev || config("external_api_enabled") !== "true") {
+  if (config("external_api_enabled") !== "true") {
     return;
   }
 
@@ -140,7 +140,7 @@ export async function handleChatLogs(messages: Message[]) {
 export async function handleSubconscious(
   timestampedPrompt: TimestampedPrompt,
 ): Promise<any> {
-  if (!isDev || config("external_api_enabled") !== "true") {
+  if (config("external_api_enabled") !== "true") {
     return;
   }
 
