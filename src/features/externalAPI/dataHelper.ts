@@ -60,7 +60,7 @@ const updateConfig = (body: any) => {
 };
 
 const updateSubconscious = (body: any) => {
-  if (!isDev || config("external_api_enabled") !== "true") {
+  if (config("external_api_enabled") !== "true") {
     return;
   }
 
@@ -72,7 +72,7 @@ const updateSubconscious = (body: any) => {
 };
 
 const updateUserInputMessages = (body: any) => {
-  if (!isDev || config("external_api_enabled") !== "true") {
+  if (config("external_api_enabled") !== "true") {
     return;
   }
 
@@ -86,7 +86,7 @@ const updateUserInputMessages = (body: any) => {
 };
 
 const updateLogs = (body: any) => {
-  if (!isDev || config("external_api_enabled") !== "true") {
+  if (config("external_api_enabled") !== "true") {
     return;
   }
 
@@ -102,7 +102,7 @@ const updateLogs = (body: any) => {
 };
 
 const updateChatLogs = (body: any) => {
-  if (!isDev || config("external_api_enabled") !== "true") {
+  if (config("external_api_enabled") !== "true") {
     return;
   }
 
