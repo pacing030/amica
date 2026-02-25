@@ -412,7 +412,8 @@ export class Chat {
   }
 
   public initSSE() {
-    if (!isDev || config("external_api_enabled") !== "true") {
+    if (config("external_api_enabled") !== "true") {
+
       return;
     }  
     // Close existing SSE connection if it exists
