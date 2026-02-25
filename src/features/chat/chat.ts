@@ -418,7 +418,7 @@ export class Chat {
     // Close existing SSE connection if it exists
     this.closeSSE();
 
-    this.eventSource = new EventSource('/api/amicaHandler');
+    this.eventSource = new EventSource('/api/amicaHandler/');
 
     // Listen for incoming messages from the server
     this.eventSource.onmessage = async (event) => {
